@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public enum GameState { GAMEPLAY, PAUSED, MAINMENU }
 
@@ -11,6 +12,7 @@ public class GameManager : Singleton<GameManager>
     private GameState _gamestate;
 
     public GameState GameState { get => _gamestate; }
+
 
     /*
      Musí handlovat stavy bìhu hry:
@@ -38,22 +40,20 @@ public class GameManager : Singleton<GameManager>
         - naspawnovat pøípadné manažery pro daný level
      */
 
+    public void Start()
+    {
+
+    }
+
+    private void Update()
+    {
+
+    }
 
     public void TransitToState(GameState newGameState)
     {
         _gamestate = newGameState;
     }
 
-    public IEnumerator TransitToScene(string newSceneName, LoadSceneMode loadMode)
-    {
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetSceneByName(newSceneName).buildIndex, loadMode);
-
-        // Wait until the asynchronous scene fully loads
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-    }
-   
 }
