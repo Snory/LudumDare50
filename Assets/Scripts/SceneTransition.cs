@@ -2,12 +2,12 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransition : MonoBehaviour
+public class SceneTransition : SceneTransitionBase
 {
 
     private string _currentScene;
 
-    public void TransitToScene(string newSceneName, LoadSceneMode loadMode)
+    public override void TransitToScene(string newSceneName, LoadSceneMode loadMode)
     {
         if (!string.IsNullOrEmpty(_currentScene))
         {
