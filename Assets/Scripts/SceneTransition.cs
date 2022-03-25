@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,25 +8,56 @@ public class SceneTransition : SceneTransitionBase
 
     private string _currentScene;
 
-    public override void TransitToScene(string newSceneName, LoadSceneMode loadMode)
+    public override void LoadScene(string newSceneName, LoadSceneMode loadMode)
+    {
+        StartCoroutine(LoadSceneRoutine(newSceneName, loadMode));
+    }
+
+    private IEnumerator LoadSceneRoutine(string newSceneName, LoadSceneMode loadMode)
+    {
+
+        AsyncOperation asyncOp = SceneManager.LoadSceneAsync(newSceneName, loadMode);
+        asyncOp.allowSceneActivation = false;
+        asyncOp.completed += OnSceneLoaded;
+
+        while (!asyncOp.isDone)
+        {
+            if (asyncOp.progress >= 0.9f)
+            {
+                asyncOp.allowSceneActivation = true;
+                _currentScene = newSceneName;
+            }
+
+            yield return null;
+        }
+
+        yield return null;
+    }
+
+    public override void UnloadCurrentScene()
     {
         if (!string.IsNullOrEmpty(_currentScene))
         {
-            AsyncOperation asyncUnLoad = SceneManager.UnloadSceneAsync(_currentScene);
-            if (asyncUnLoad == null)
-            {
-                throw new Exception("Unable to unload current scene");
-            }
-            asyncUnLoad.completed += OnSceneUnloaded;
+            StartCoroutine(UnloadCurrentSceneRoutine());
         }
+    }
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(newSceneName, loadMode);
-        if (asyncLoad == null)
+    private IEnumerator UnloadCurrentSceneRoutine()
+    {
+        AsyncOperation asyncOp = SceneManager.UnloadSceneAsync(_currentScene);
+        asyncOp.allowSceneActivation = false;
+        asyncOp.completed += OnSceneUnloaded;
+
+        while (!asyncOp.isDone)
         {
-            throw new Exception("Unable to load new scene");
+            if (asyncOp.progress >= 0.9f)
+            {
+                asyncOp.allowSceneActivation = true;                
+            }
+
+            yield return null;
         }
-        asyncLoad.completed += OnSceneLoaded;
-        _currentScene = newSceneName;
+        yield return null;
     }
 
 
@@ -39,4 +71,6 @@ public class SceneTransition : SceneTransitionBase
         Debug.Log("Scene loaded");
 
     }
+
+
 }
