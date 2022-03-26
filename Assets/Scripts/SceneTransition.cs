@@ -3,10 +3,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
+
+
 public class SceneTransition : SceneTransitionBase
 {
-
-    private string _currentScene;
+       
 
     public override void LoadScene(string newSceneName, LoadSceneMode loadMode)
     {
@@ -18,7 +21,6 @@ public class SceneTransition : SceneTransitionBase
 
         AsyncOperation asyncOp = SceneManager.LoadSceneAsync(newSceneName, loadMode);
         asyncOp.allowSceneActivation = false;
-        asyncOp.completed += OnSceneLoaded;
 
         while (!asyncOp.isDone)
         {
@@ -26,12 +28,16 @@ public class SceneTransition : SceneTransitionBase
             {
                 asyncOp.allowSceneActivation = true;
                 _currentScene = newSceneName;
+
             }
 
             yield return null;
         }
 
         yield return null;
+
+
+
     }
 
     public override void UnloadCurrentScene()
@@ -46,7 +52,6 @@ public class SceneTransition : SceneTransitionBase
     {
         AsyncOperation asyncOp = SceneManager.UnloadSceneAsync(_currentScene);
         asyncOp.allowSceneActivation = false;
-        asyncOp.completed += OnSceneUnloaded;
 
         while (!asyncOp.isDone)
         {
@@ -59,18 +64,5 @@ public class SceneTransition : SceneTransitionBase
         }
         yield return null;
     }
-
-
-    private void OnSceneUnloaded(AsyncOperation obj)
-    {
-        Debug.Log("Scene unloaded");
-    }
-
-    private void OnSceneLoaded(AsyncOperation obj)
-    {
-        Debug.Log("Scene loaded");
-
-    }
-
 
 }

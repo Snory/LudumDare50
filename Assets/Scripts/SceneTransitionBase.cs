@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public abstract class SceneTransitionBase : MonoBehaviour
 {
+    protected string _currentScene;
+
     public abstract void UnloadCurrentScene();
     public abstract void LoadScene(string newSceneName, LoadSceneMode loadMode);
 
@@ -10,5 +12,10 @@ public abstract class SceneTransitionBase : MonoBehaviour
     {
         UnloadCurrentScene();
         LoadScene(newSceneName, loadMode);
+    }
+    public virtual void ReloadCurrentScene()
+    {
+        UnloadCurrentScene();
+        LoadScene(_currentScene, LoadSceneMode.Additive);
     }
 }

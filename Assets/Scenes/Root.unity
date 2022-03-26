@@ -720,7 +720,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseObject: {fileID: 1336739985}
-  MenuObject: {fileID: 1041520476}
+  MainmenuObject: {fileID: 1041520476}
+  GameOverObject: {fileID: 134477903}
 --- !u!4 &975284663
 Transform:
   m_ObjectHideFlags: 0
