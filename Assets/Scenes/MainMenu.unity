@@ -447,6 +447,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 523021024, guid: 10100e1b248d563438780aef40c682b2, type: 3}
+      propertyPath: _initLoadDelay
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 364778670819478009, guid: 10100e1b248d563438780aef40c682b2, type: 3}
       propertyPath: m_RootOrder
       value: 2

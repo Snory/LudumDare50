@@ -11,6 +11,12 @@ public class AnimatorSceneTransition : SceneTransitionBase
 {
     [SerializeField]
     private Animator _sceneTransitionAnimator;
+    
+    [SerializeField]
+    private float _initTransitionDelay;
+
+    [SerializeField]
+    private float _initLoadDelay = 1.5f;
 
     public override void TransitToScene(string currentSceneName, string newSceneName, bool additive)
     {
@@ -19,8 +25,9 @@ public class AnimatorSceneTransition : SceneTransitionBase
 
     public IEnumerator RunAnimator(string currentSceneName, string newSceneName, bool additive)
     {
-        _sceneTransitionAnimator.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(_initTransitionDelay);
+        _sceneTransitionAnimator.SetTrigger("End");
+        yield return new WaitForSeconds(_initLoadDelay);
         LoadScene(newSceneName,additive);
         if (additive)
         {

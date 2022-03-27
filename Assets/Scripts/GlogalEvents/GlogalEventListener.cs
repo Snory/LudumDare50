@@ -16,5 +16,5 @@ public class GlogalEventListener : MonoBehaviour
     { Event.UnregisterListener(this); }
 
     public void OnEventRaised()
-    { Response.Invoke(); }
+    { Response?.Invoke(); }
 }

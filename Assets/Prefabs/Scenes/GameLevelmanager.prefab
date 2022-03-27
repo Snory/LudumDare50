@@ -292,6 +292,7 @@ GameObject:
   - component: {fileID: 7171593652921046863}
   - component: {fileID: 7171593652921046860}
   - component: {fileID: 1232528249}
+  - component: {fileID: 1232528246}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -358,7 +359,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1232528246}
+      - m_Target: {fileID: 3595697603942266007}
         m_TargetAssemblyTypeName: LevelUIElement, Assembly-CSharp
         m_MethodName: SwitchElementVisibility
         m_Mode: 1
@@ -370,6 +371,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1232528246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171593652921046861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0512967ae9095114184bf02dbbd79004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8013f957941c6b345a599c562dedf484, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7171593652928899567
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +533,7 @@ GameObject:
   - component: {fileID: 7171593653230679660}
   - component: {fileID: 7171593653230679659}
   - component: {fileID: 7171593653230679658}
-  - component: {fileID: 1232528246}
+  - component: {fileID: 3595697603942266007}
   m_Layer: 0
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -606,7 +623,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1232528246
+--- !u!114 &3595697603942266007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,6 +911,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5820918029204678596, guid: d374029fedf739c46a15a782d4f68879, type: 3}
+      propertyPath: NextScene
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820918029204678596, guid: d374029fedf739c46a15a782d4f68879, type: 3}
+      propertyPath: CurrentScene
+      value: Level
+      objectReference: {fileID: 0}
     - target: {fileID: 5820918029204678596, guid: d374029fedf739c46a15a782d4f68879, type: 3}
       propertyPath: _sceneTransition
       value: 

@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 364778670819478009}
   m_Layer: 0
-  m_Name: FadeAwayLevelTransition
+  m_Name: LevelTransitions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
