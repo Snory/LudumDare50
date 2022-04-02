@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5195018a8c0929b4f9de46866e15fe90, type: 3}
+  m_Name: Green
+  m_EditorClassIdentifier: 
+  NeedProbabilities:
+  - Need: {fileID: 11400000, guid: 4ef48c44edf81c14cacb83b7080e56c1, type: 2}
+    Probability: 50
+  - Need: {fileID: 11400000, guid: 0ff5dcb278c78054fb55127728dc931b, type: 2}
+    Probability: 25
+  - Need: {fileID: 11400000, guid: 6bb0a5e592eeab247afbb74d23bd054d, type: 2}
+    Probability: 25
