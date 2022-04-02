@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LevelPhaseListener : MonoBehaviour
+public class LevelPhaseEventListener : MonoBehaviour
 {
 
     public LevelPhaseEvent Event;

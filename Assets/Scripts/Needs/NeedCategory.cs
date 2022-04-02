@@ -11,7 +11,7 @@ public class NeedCategory : ScriptableObject
 
     //return need from needprobabilities
 
-    public Need GenerateNeed()
+    public Need GetNeed()
     {
         int randomNumber = UnityEngine.Random.Range(0, 101);
         int currentMax = 0;

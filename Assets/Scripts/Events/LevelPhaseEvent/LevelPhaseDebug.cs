@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class LevelPhaseDebug : MonoBehaviour
 {
-   
-
     public void WriteText(string text)
     {
         Debug.Log(text);

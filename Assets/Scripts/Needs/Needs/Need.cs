@@ -9,10 +9,11 @@ using System.Linq;
 public abstract class Need : ScriptableObject
 {
     public List<Satisfier> PossibleSatisfiers;
-    public virtual bool SatisfyNeed(Satisfier s)
+
+    public virtual bool CanUseSatisfier(Satisfier s)
     {
-        bool satisfied = PossibleSatisfiers.Contains(s);
-        return satisfied;
+        bool canUse = PossibleSatisfiers.Contains(s);
+        return canUse;
     }
        
 }

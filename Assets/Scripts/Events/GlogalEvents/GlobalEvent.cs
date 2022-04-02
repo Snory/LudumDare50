@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu( fileName = "NewGlobal",menuName = "GlobalEvents", order =1)]
+[CreateAssetMenu( fileName = "NewGlobal",menuName = "Events/GlobalEvents", order =1)]
 public class GlobalEvent : ScriptableObject
 {
 	private List<GlogalEventListener> listeners =

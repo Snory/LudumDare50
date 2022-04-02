@@ -4,11 +4,11 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu(fileName = "NewLevelPhaseEvent", menuName = "LevelPhaseEvents", order = 1)]
+[CreateAssetMenu(fileName = "NewLevelPhaseEvent", menuName = "Events/LevelPhaseEvents", order = 1)]
 public class LevelPhaseEvent : ScriptableObject
 {
-	private List<LevelPhaseListener> listeners =
-	new List<LevelPhaseListener>();
+	private List<LevelPhaseEventListener> listeners =
+	new List<LevelPhaseEventListener>();
 
 	public void Raise()
 	{
@@ -16,10 +16,10 @@ public class LevelPhaseEvent : ScriptableObject
 			listeners[i].OnEventRaised();
 	}
 
-	public void RegisterListener(LevelPhaseListener levelPhaseListener)
+	public void RegisterListener(LevelPhaseEventListener levelPhaseListener)
 	{ listeners.Add(levelPhaseListener); }
 
-	public void UnregisterListener(LevelPhaseListener levelPhaseListener)
+	public void UnregisterListener(LevelPhaseEventListener levelPhaseListener)
 	{ listeners.Remove(levelPhaseListener); }
 
 

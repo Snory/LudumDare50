@@ -12,7 +12,7 @@ public class PhaseSwitch : MonoBehaviour
 
     private void Awake()
     {
-        _lastPhaseIndex = 0;
+        _lastPhaseIndex = -1;
     }
 
     //raise event with nextphase
