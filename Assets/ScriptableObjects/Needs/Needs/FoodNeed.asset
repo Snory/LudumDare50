@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4011ba624e25c489ba7b254413bc28, type: 3}
   m_Name: FoodNeed
   m_EditorClassIdentifier: 
+  PossibleSatisfiers:
+  - {fileID: 11400000, guid: b3aaa2dd52b82c947a0b1b1693f43cb1, type: 2}

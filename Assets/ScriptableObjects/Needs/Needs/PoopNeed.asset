@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee666d3366fa3f94cb1ac242329aaa85, type: 3}
   m_Name: PoopNeed
   m_EditorClassIdentifier: 
+  PossibleSatisfiers:
+  - {fileID: 11400000, guid: fbb7be526f9d7274c94e29b28104d0f8, type: 2}

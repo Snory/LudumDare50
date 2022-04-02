@@ -7,6 +7,7 @@ using UnityEngine;
 public class NeedCategory : ScriptableObject
 {
     public List<NeedProbability> NeedProbabilities;
+    public Satisfier DefaultSatisfier;
 
     //return need from needprobabilities
 

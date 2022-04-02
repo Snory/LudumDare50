@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49b9ccc7cd0bea409029b4a05c3378c, type: 3}
-  m_Name: PetNeed
+  m_Script: {fileID: 11500000, guid: 6fea6a77fa194d14285ae96f100cf872, type: 3}
+  m_Name: FoodSatisfier
   m_EditorClassIdentifier: 
-  PossibleSatisfiers:
-  - {fileID: 11400000, guid: 7d23a5c7467b8dc4abf347d7fea055cc, type: 2}

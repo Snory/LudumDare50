@@ -19,3 +19,4 @@ MonoBehaviour:
     Probability: 25
   - Need: {fileID: 11400000, guid: 6bb0a5e592eeab247afbb74d23bd054d, type: 2}
     Probability: 25
+  DefaultSatisfier: {fileID: 11400000, guid: ee829b32ae6fedd4cb29d92be1be4dff, type: 2}

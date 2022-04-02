@@ -14,7 +14,7 @@ public class MonsterNeeds : MonoBehaviour
     public List<NeedCategory> Needs;
     //variable list of actual needs for given level
 
-    private List<Need> _actualNeeds;
+    private List<MonsterNeedSatisfier> _actualNeeds;
     //variable list of actual sources for given level
     //variable to store level index
 
@@ -22,7 +22,7 @@ public class MonsterNeeds : MonoBehaviour
 
     private void Start()
     {
-        _actualNeeds = new List<Need>();
+        _actualNeeds = new List<MonsterNeedSatisfier>();
         GenerateActualNeeds();
     }
 
@@ -33,8 +33,9 @@ public class MonsterNeeds : MonoBehaviour
         for (int i = 0; i < _levelOfNeeds; i++)
         {
             Need n = Needs[i].GenerateNeed();
+            Satisfier defaultSatisfier = Needs[i].DefaultSatisfier;
             Debug.Log(n.GetType());
-            _actualNeeds.Add(n);
+            _actualNeeds.Add(new MonsterNeedSatisfier(n, defaultSatisfier));
         }
     }
 
@@ -43,12 +44,10 @@ public class MonsterNeeds : MonoBehaviour
 
         for (int i = 0; i < _actualNeeds.Count; i++)
         {
-            Need n = _actualNeeds[i];
-            bool satisfied = n.SatisfyNeed();
-
+            Need n = _actualNeeds[i].Need;
+            Satisfier s = _actualNeeds[i].Satisfier;
+            bool satisfied = n.SatisfyNeed(s);
             RaiseSatisfaction(n, satisfied);
-            
-            //raise whatever this pet was or was not satisfied
         }
     }
 
