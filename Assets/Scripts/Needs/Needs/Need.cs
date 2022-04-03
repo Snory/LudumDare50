@@ -9,6 +9,7 @@ using System.Linq;
 public abstract class Need : ScriptableObject
 {
     public List<Satisfier> PossibleSatisfiers;
+    public Sprite NeedSprite;
 
     public virtual bool CanUseSatisfier(Satisfier s)
     {

@@ -29,7 +29,7 @@ public class SatisfierStockUI : LevelUIElement
         foreach(var satisfier in _stockSatisfier.StockedSatisfiers)
         {
             GameObject uiStockGridElement = Instantiate(UIStockGridElementPrefab, UIStockGridParent.transform);
-            uiStockGridElement.GetComponent<SatisfierStockElementUI>().Satisfier = satisfier.Key;
+            uiStockGridElement.GetComponent<SatisfierStockElementUI>().SetSatisfierElementUI(satisfier.Key,satisfier.Value);
             _uiStockGridElements.Add(uiStockGridElement);
         }
     }

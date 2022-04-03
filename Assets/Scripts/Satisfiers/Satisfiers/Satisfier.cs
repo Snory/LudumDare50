@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class Satisfier : ScriptableObject
 {
-
+    public Sprite SatisfierSprite;
 
 }

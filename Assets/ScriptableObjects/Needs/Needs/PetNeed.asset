@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PossibleSatisfiers:
   - {fileID: 11400000, guid: 7d23a5c7467b8dc4abf347d7fea055cc, type: 2}
+  NeedSprite: {fileID: 21300000, guid: a3ce638a23b3f464096877d0e87d0beb, type: 3}

@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fea6a77fa194d14285ae96f100cf872, type: 3}
   m_Name: FoodSatisfier
   m_EditorClassIdentifier: 
+  SatisfierSprite: {fileID: 21300000, guid: 60b84ea5c04c45c4ea916e769bb35b66, type: 3}

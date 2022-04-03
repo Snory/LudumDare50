@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c194bcfa05bf244bc8bf384abd44a6, type: 3}
   m_Name: PetSatisfier
   m_EditorClassIdentifier: 
+  SatisfierSprite: {fileID: 21300000, guid: a3ce638a23b3f464096877d0e87d0beb, type: 3}
