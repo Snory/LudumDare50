@@ -7,7 +7,8 @@ using UnityEngine.Events;
 
 public class MonsterNeeds : MonoBehaviour
 {
-
+    public Monster MonsterType;
+    
     [SerializeField]
     private MonsterNeedEvent _monsterSpawned;
 
@@ -24,13 +25,11 @@ public class MonsterNeeds : MonoBehaviour
     public UnityEvent<bool> Selected;
 
     public int NeedyLevel { get; set; }
-    public List<NeedCategory> Needs;
     private List<MonsterNeedSatisfier> _currentNeeds;
     private int _indexOfCurrentNeed;
     private MonsterNeedSatisfier _currentMonsterNeedSatisfier;
     
     private bool _selected;
-
 
 
     private void Awake()
@@ -45,7 +44,7 @@ public class MonsterNeeds : MonoBehaviour
 
     public void RaiseNeedyLevel()
     {
-        if ((NeedyLevel + 1) > Needs.Count)
+        if ((NeedyLevel + 1) > MonsterType.Needs.Count)
         {
             return;
         }
@@ -59,8 +58,8 @@ public class MonsterNeeds : MonoBehaviour
 
         for (int i = 0; i < NeedyLevel; i++)
         {
-            Need n = Needs[i].GetNeed();
-            Satisfier defaultSatisfier = Needs[i].DefaultSatisfier;
+            Need n = MonsterType.Needs[i].GetNeed();
+            Satisfier defaultSatisfier = MonsterType.Needs[i].DefaultSatisfier;
             _currentNeeds.Add(new MonsterNeedSatisfier(n, defaultSatisfier));
         }
         SetCurrentNeed(true);
@@ -207,10 +206,6 @@ public class MonsterNeeds : MonoBehaviour
             Satisfied.Invoke();
         }
     }
-
-
-
-
 
 
 

@@ -5,18 +5,20 @@ using UnityEngine.Events;
 
 public class MonsterNeedsCycle : MonoBehaviour
 {
-    public List<MonsterNeedsCycleTime> MonsterNeedCycleTimes;    
     private int _lastCycleIndex;
-
+    public Monster MonsterType;
     public UnityEvent<float, float> TimerTicked;
 
     //deal with this direct reference later
     [SerializeField]
     private MonsterNeeds _monsterNeeds;
+    
+    private bool _gameOver;
 
     private void Awake()
     {
         _lastCycleIndex = 0;
+        _gameOver = false;
     }
 
     private void Start()
@@ -26,12 +28,12 @@ public class MonsterNeedsCycle : MonoBehaviour
 
     public void StartCycle(bool restart)
     {
-        if (MonsterNeedCycleTimes.Count == 0)
+        if (MonsterType.MonsterNeedCycleTimes.Count == 0)
         {
             Debug.LogError("[MonsterNeedsCycle]: EmptyMonster cycle");
         }
 
-        StartCoroutine(StartTimer(MonsterNeedCycleTimes[_lastCycleIndex], restart));
+        StartCoroutine(StartTimer(MonsterType.MonsterNeedCycleTimes[_lastCycleIndex], restart));
     }
 
     private IEnumerator StartTimer(MonsterNeedsCycleTime monsterNeedsCycleTime, bool restart)
@@ -46,6 +48,10 @@ public class MonsterNeedsCycle : MonoBehaviour
         {
             RaiseTimerTicked(monsterNeedsCycleTime.CycleTime, actualSeconds);
             actualSeconds += 1;
+            if (_gameOver)
+            {
+                break;
+            }
             yield return new WaitForSeconds(1);
         }
         NextCycle();
@@ -60,7 +66,10 @@ public class MonsterNeedsCycle : MonoBehaviour
     public void NextCycle()
     {
         StopAllCoroutines();
-        if ((_lastCycleIndex + 1) < MonsterNeedCycleTimes.Count)
+
+        if (_gameOver) return;
+
+        if ((_lastCycleIndex + 1) < MonsterType.MonsterNeedCycleTimes.Count)
         {
             _lastCycleIndex++;
         }
@@ -91,6 +100,7 @@ public class MonsterNeedsCycle : MonoBehaviour
     public void GameOver()
     {
         StopAllCoroutines();
+        _gameOver = true;
     }
    
 }

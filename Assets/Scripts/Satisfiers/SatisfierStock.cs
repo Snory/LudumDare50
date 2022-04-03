@@ -26,7 +26,7 @@ public class SatisfierStock : MonoBehaviour
 
     public void FillSatisfierStockForMonsterNeeds(MonsterNeeds monsterNeeds)
     {
-        List<NeedCategory> needs = monsterNeeds.Needs;
+        List<NeedCategory> needs = monsterNeeds.MonsterType.Needs;
 
         if(needs.Count == 0)
         {

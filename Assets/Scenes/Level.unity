@@ -1282,6 +1282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2550dd35e8315144fa71e45f2b0c0dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Behavior: {fileID: 11400000, guid: 6c60eeb1c6eb2694887150957284c029, type: 2}
   _monsterSpawned: {fileID: 11400000, guid: 5d379efc28b2f3f459589470e344d04b, type: 2}
   _updatedScore: {fileID: 11400000, guid: 75e06800381641b47b1aede02179fd4c, type: 2}
   _stockSatisfierUsed: {fileID: 11400000, guid: 65c148e790d505c479c9a84194ee35e7, type: 2}
@@ -1357,10 +1358,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Needs:
-  - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
-  - {fileID: 11400000, guid: baf5b8928bbc15842b309c94eed70fb1, type: 2}
-  - {fileID: 11400000, guid: 6f10e8c13f75a8847a84b5eea1316443, type: 2}
 --- !u!114 &1178515064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1384,6 +1381,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1178515063}
+        m_TargetAssemblyTypeName: MonsterNeedsCycle, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2197,13 +2206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eafa5e95c27f49479a3b6f11bf2ff4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterNeedCycleTimes:
-  - CycleEvent: {fileID: 11400000, guid: 55be08626d0273c44807101fc4973522, type: 2}
-    CycleTime: 10
-  - CycleEvent: {fileID: 11400000, guid: bbaf208a3bd5d2a4fbfa61a12009cb28, type: 2}
-    CycleTime: 0
-  - CycleEvent: {fileID: 11400000, guid: c2c3564156403e54c93a7e3b4ac8f542, type: 2}
-    CycleTime: 10
+  Behavior: {fileID: 11400000, guid: 6c60eeb1c6eb2694887150957284c029, type: 2}
   TimerTicked:
     m_PersistentCalls:
       m_Calls:
