@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c194bcfa05bf244bc8bf384abd44a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 99e4d705818e3b44a9fab02ba1365d55, type: 3}
   m_Name: PetSatisfier
   m_EditorClassIdentifier: 
-  SatisfierSprite: {fileID: 21300000, guid: a3ce638a23b3f464096877d0e87d0beb, type: 3}
+  SatisfierSprite: {fileID: 958788251351077215, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}

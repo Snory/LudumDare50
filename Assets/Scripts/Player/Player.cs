@@ -27,12 +27,18 @@ public class Player : MonoBehaviour
             {
                 if(_lastSelectedMonster != null)
                 {
-                    _lastSelectedMonster.Selected = false;
+                    _lastSelectedMonster.SetSelected(false);
                 }
 
                 _lastSelectedMonster = hit.transform.GetComponentInChildren<MonsterNeeds>();
-                _lastSelectedMonster.Selected = true;
+                _lastSelectedMonster.SetSelected(true);
             }
+        }
+
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            _lastSelectedMonster.SetSelected(false);
         }
 
     }

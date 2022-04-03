@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f49b9ccc7cd0bea409029b4a05c3378c, type: 3}
+  m_Script: {fileID: 11500000, guid: de7a50f731b8d7c478cec329be774a7e, type: 3}
   m_Name: PetNeed
   m_EditorClassIdentifier: 
   PossibleSatisfiers:
-  - {fileID: 11400000, guid: 7d23a5c7467b8dc4abf347d7fea055cc, type: 2}
-  NeedSprite: {fileID: 21300000, guid: a3ce638a23b3f464096877d0e87d0beb, type: 3}
+  - {fileID: 11400000, guid: a4580e078e870254085fbb0fb21b0dea, type: 2}
+  NeedSprite: {fileID: 958788251351077215, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}

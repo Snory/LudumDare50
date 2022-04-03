@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d4011ba624e25c489ba7b254413bc28, type: 3}
+  m_Script: {fileID: 11500000, guid: de7a50f731b8d7c478cec329be774a7e, type: 3}
   m_Name: FoodNeed
   m_EditorClassIdentifier: 
   PossibleSatisfiers:
-  - {fileID: 11400000, guid: b3aaa2dd52b82c947a0b1b1693f43cb1, type: 2}
-  NeedSprite: {fileID: 21300000, guid: 60b84ea5c04c45c4ea916e769bb35b66, type: 3}
+  - {fileID: 11400000, guid: 5538290faffad8348804cb9a81255dc5, type: 2}
+  NeedSprite: {fileID: 476379784659589465, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}

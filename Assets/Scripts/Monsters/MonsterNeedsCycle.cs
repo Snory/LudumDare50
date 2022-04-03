@@ -10,7 +10,6 @@ public class MonsterNeedsCycle : MonoBehaviour
 
     public UnityEvent<float, float> TimerTicked;
 
-
     //deal with this direct reference later
     [SerializeField]
     private MonsterNeeds _monsterNeeds;
@@ -27,6 +26,11 @@ public class MonsterNeedsCycle : MonoBehaviour
 
     public void StartCycle(bool restart)
     {
+        if (MonsterNeedCycleTimes.Count == 0)
+        {
+            Debug.LogError("[MonsterNeedsCycle]: EmptyMonster cycle");
+        }
+
         StartCoroutine(StartTimer(MonsterNeedCycleTimes[_lastCycleIndex], restart));
     }
 
@@ -40,15 +44,14 @@ public class MonsterNeedsCycle : MonoBehaviour
         float actualSeconds = 0;
         while(actualSeconds < monsterNeedsCycleTime.CycleTime)
         {
-            actualSeconds += 1;
             RaiseTimerTicked(monsterNeedsCycleTime.CycleTime, actualSeconds);
+            actualSeconds += 1;
             yield return new WaitForSeconds(1);
         }
-
         NextCycle();
     }
 
-    public void OnSatisfierUsed(Satisfier s)
+    public void OnSatisfierUsed()
     {
         StopAllCoroutines();
         StartCycle(true);
@@ -83,6 +86,11 @@ public class MonsterNeedsCycle : MonoBehaviour
         {
             monsterNeedEvent.Raise(_monsterNeeds);
         }
+    }
+
+    public void GameOver()
+    {
+        StopAllCoroutines();
     }
    
 }

@@ -27,6 +27,12 @@ public class SatisfierStock : MonoBehaviour
     public void FillSatisfierStockForMonsterNeeds(MonsterNeeds monsterNeeds)
     {
         List<NeedCategory> needs = monsterNeeds.Needs;
+
+        if(needs.Count == 0)
+        {
+            Debug.LogError("[SatisfierStock]: ZeroNeeds available");
+        }
+
         for (int i = 0; i < monsterNeeds.NeedyLevel; i++)
         {
             Need n = needs[i].GetNeed();

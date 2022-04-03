@@ -15,19 +15,22 @@ public class MonsterNeeds : MonoBehaviour
     private GlobalOneFloatEvent _updatedScore;
 
     [SerializeField]
-    private SatisfierEvent _satisfierUsed;
-
-
+    private SatisfierEvent _stockSatisfierUsed;
+        
     public UnityEvent<Need> CurrentNeedChanged;
 
-    public UnityEvent Satisfied;
+    public UnityEvent Satisfied, UsedSatisfier;
+
+    public UnityEvent<bool> Selected;
 
     public int NeedyLevel { get; set; }
     public List<NeedCategory> Needs;
     private List<MonsterNeedSatisfier> _currentNeeds;
     private int _indexOfCurrentNeed;
     private MonsterNeedSatisfier _currentMonsterNeedSatisfier;
-    public bool Selected;
+    
+    private bool _selected;
+
 
 
     private void Awake()
@@ -42,6 +45,11 @@ public class MonsterNeeds : MonoBehaviour
 
     public void RaiseNeedyLevel()
     {
+        if ((NeedyLevel + 1) > Needs.Count)
+        {
+            return;
+        }
+
         NeedyLevel++;
     }
 
@@ -79,11 +87,15 @@ public class MonsterNeeds : MonoBehaviour
         RaiseUpdateScore(deltaScore);
     }
 
-    public void UseSatisfier(Satisfier satisfier)
+    public void UseStockSatisfier(Satisfier satisfier)
     {
 
-        if (Selected)
+        if (_selected)
         {
+            if(_currentMonsterNeedSatisfier == null)
+            {
+                return;
+            }
             //check if satisfier can be used
             bool canUseSatisfier = _currentMonsterNeedSatisfier.Need.CanUseSatisfier(satisfier);
 
@@ -92,10 +104,16 @@ public class MonsterNeeds : MonoBehaviour
                 return;
             }
             _currentMonsterNeedSatisfier.Satisfier = satisfier;
-            RaiseSatisfierUsed(satisfier);
+            RaiseStockSatisfierUsed(satisfier);
             SetCurrentNeed(false);               
         }
 
+    }
+
+    public void SetSelected(bool selected)
+    {
+        _selected = selected;
+        RaiseSelected();
     }
 
     private void SetCurrentNeed(bool reset)
@@ -103,11 +121,12 @@ public class MonsterNeeds : MonoBehaviour
         if (reset)
         {
             _indexOfCurrentNeed = 0;
-        } else if (_indexOfCurrentNeed < (NeedyLevel-1))
+        } else if (_indexOfCurrentNeed + 1 < _currentNeeds.Count)
         {
             _indexOfCurrentNeed++;
-        } else if ( _indexOfCurrentNeed >= (NeedyLevel - 1))
+        } else if ( _indexOfCurrentNeed + 1 >= _currentNeeds.Count)
         {
+            _currentMonsterNeedSatisfier = null;
             RaiseSatisfied();
             return;
         }
@@ -137,6 +156,24 @@ public class MonsterNeeds : MonoBehaviour
         RaiseNeedyLevel();
     }
 
+
+    public void RaiseSelected()
+    {
+        if(Selected != null)
+        {
+            Selected.Invoke(_selected);
+        }
+    }
+
+    public void RaiseUsedSatisfier()
+    {
+        if (UsedSatisfier != null)
+        {
+            UsedSatisfier.Invoke();
+        }
+    }
+
+
     public void RaiseUpdateScore(float deltaScore)
     {
         if(_updatedScore != null)
@@ -154,18 +191,18 @@ public class MonsterNeeds : MonoBehaviour
     }
 
 
-    public void RaiseSatisfierUsed(Satisfier satisfier)
+    public void RaiseStockSatisfierUsed(Satisfier satisfier)
     {
-        if (_satisfierUsed != null)
+        if (_stockSatisfierUsed != null)
         {
-            _satisfierUsed.Raise(satisfier);
+            _stockSatisfierUsed.Raise(satisfier);
         }
     }
 
 
     public void RaiseSatisfied()
     {
-        if(Satisfied != null)
+        if (Satisfied != null)
         {
             Satisfied.Invoke();
         }

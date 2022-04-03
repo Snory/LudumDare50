@@ -5,8 +5,8 @@ using System;
 using System.Linq;
 
 
-
-public abstract class Need : ScriptableObject
+[CreateAssetMenu(fileName = "NewFoodNeed", menuName = "Need/GeneralNeed", order = 1)]
+public class Need : ScriptableObject
 {
     public List<Satisfier> PossibleSatisfiers;
     public Sprite NeedSprite;
