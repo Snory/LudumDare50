@@ -21,7 +21,9 @@ public class MonsterNeedUI : MonoBehaviour
 
     private Need _needToShow;
 
-    
+    [SerializeField]
+    private TextMeshProUGUI _levelText;
+
     private void Awake()
     {
         this.GetComponent<Canvas>().worldCamera = Camera.main;
@@ -109,5 +111,10 @@ public class MonsterNeedUI : MonoBehaviour
         OnEvaluationCycle();
     }
 
+
+    public void OnNeedyLevelRaised(int level)
+    {
+        _levelText.text = level.ToString();
+    }
 
 }

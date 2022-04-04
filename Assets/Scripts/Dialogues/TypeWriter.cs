@@ -7,9 +7,10 @@ public class TypeWriter : MonoBehaviour
 {
     [SerializeField]
     private float _speedInSec;
-   
+
     public void Type(string text, Action<string> targetCallBack)
     {
+        StopAllCoroutines();
         StartCoroutine(TypeText(text,targetCallBack));
     }
 

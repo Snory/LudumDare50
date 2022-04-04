@@ -11,6 +11,9 @@ public class MonsterSpawner : MonoBehaviour
     private int _countOfSpawnedMonsters;
 
     [SerializeField]
+    private GlobalEvent _winEvent;
+
+    [SerializeField]
     private List<MonsterSpawnSpot> _spawnSpots;
 
     [SerializeField]
@@ -23,7 +26,6 @@ public class MonsterSpawner : MonoBehaviour
     {
         _countOfSpawnedMonsters = 0;
     }
-
 
     public void OnUpdatedScore(float score)
     {
@@ -41,6 +43,8 @@ public class MonsterSpawner : MonoBehaviour
         {
             StartCoroutine(SpawnMonsters(mssf.CountOfMonstersOnScoreLevel - _countOfSpawnedMonsters));
         }
+
+        CheckAllSpots();
     }
 
     private IEnumerator SpawnMonsters(int countOfMonstersToSpawn)
@@ -57,7 +61,31 @@ public class MonsterSpawner : MonoBehaviour
 
         }
         _spawning = false;
+    }
 
+    private void CheckAllSpots()
+    {
+        int maxLevelCount = 0;
+        for (int i = 0; i < _spawnSpots.Count; i++)
+        {
+            if(_spawnSpots[i].GetLevelOfSpawnSpotMonster() == 12)
+            {
+                maxLevelCount++;
+            }
+        }
+
+        if(maxLevelCount == _spawnSpots.Count)
+        {
+            RaiseWin();
+        }
+    }
+
+    public void RaiseWin()
+    {
+        if(_winEvent != null)
+        {
+            _winEvent.Raise();
+        }
     }
 
 

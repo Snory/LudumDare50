@@ -25,6 +25,9 @@ public class MonsterSpawnSpot : MonoBehaviour
     [SerializeField]
     private float _freeSpotAfterSeconds;
 
+    [SerializeField]
+    private MonsterNeeds _currentMonsterNeeds;
+
     public bool SpawnSpotFull;
 
     private void Awake()
@@ -59,6 +62,7 @@ public class MonsterSpawnSpot : MonoBehaviour
 
         //init monster
         monsterNeeds.Init();
+        _currentMonsterNeeds = monsterNeeds;
         SpawnSpotFull = true;
         OnMonsterSpawned();
     }
@@ -100,6 +104,17 @@ public class MonsterSpawnSpot : MonoBehaviour
         }
     }
 
+
+    public int GetLevelOfSpawnSpotMonster()
+    {
+        if (SpawnSpotFull)
+        {
+            return _currentMonsterNeeds.NeedyLevel;
+        } else
+        {
+            return 0;
+        }
+    }
 
 
     

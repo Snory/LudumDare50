@@ -25,6 +25,7 @@ public class MonsterNeeds : MonoBehaviour
     private GlobalEvent _monsterDestroyed;
 
     public UnityEvent<float> MonsterScored;
+    public UnityEvent<int> NeedyLevelRaised;
     public UnityEvent MonsterSold;
 
     [SerializeField]
@@ -75,6 +76,7 @@ public class MonsterNeeds : MonoBehaviour
         }
 
         NeedyLevel++;
+        RaiseNeedyLevelRaised();
     }
 
     public void GenerateCurrentNeeds()
@@ -240,6 +242,13 @@ public class MonsterNeeds : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    private void RaiseNeedyLevelRaised()
+    {
+        if(NeedyLevelRaised != null)
+        {
+            NeedyLevelRaised.Invoke(NeedyLevel);
+        }
+    }
 
     public void RaiseUpdateScore(float deltaScore)
     {
