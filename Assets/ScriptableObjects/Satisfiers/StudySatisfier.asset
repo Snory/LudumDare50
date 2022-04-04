@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: StudySatisfier
   m_EditorClassIdentifier: 
   SatisfierSprite: {fileID: -4382766647737378002, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}
+  SatisfierPrice: 200

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1cbb770204bbc41af9ec688f599107, type: 3}
+  m_Name: AngryPlayFull
+  m_EditorClassIdentifier: 
+  MonsterNeedCycleTimes:
+  - CycleType: {fileID: 11400000, guid: 008bb36c8e4584240bc75ba509996e5f, type: 2}
+    CycleTime: 10
+  - CycleType: {fileID: 11400000, guid: 64a60c94d15d4524db8bcb6f43b72e95, type: 2}
+    CycleTime: 0
+  - CycleType: {fileID: 11400000, guid: 1aa34405f9125ba4ca14f5084e706f55, type: 2}
+    CycleTime: 10
+  Needs:
+  - {fileID: 11400000, guid: baf5b8928bbc15842b309c94eed70fb1, type: 2}
+  - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
+  - {fileID: 11400000, guid: baf5b8928bbc15842b309c94eed70fb1, type: 2}
+  - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
+  - {fileID: 11400000, guid: baf5b8928bbc15842b309c94eed70fb1, type: 2}
+  - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
+  - {fileID: 11400000, guid: baf5b8928bbc15842b309c94eed70fb1, type: 2}
+  - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
+  - {fileID: 11400000, guid: baf5b8928bbc15842b309c94eed70fb1, type: 2}
+  - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
+  MinimumSellLevel: 5
+  MaximumStockGeneration: 5
+  SellValuePerLevel: 10

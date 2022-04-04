@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,13 +8,24 @@ using UnityEngine.Events;
 
 public class MonsterNeeds : MonoBehaviour
 {
-    public Monster MonsterType;
-    
-    [SerializeField]
-    private MonsterNeedEvent _monsterSpawned;
 
     [SerializeField]
-    private GlobalOneFloatEvent _updatedScore;
+    private MonsterNeedsCycleType _needCycleType, _evaluationCycleType, _sellCycleType;
+
+
+    [SerializeField]
+    private MonsterNeedEvent _monsterNeedsGenerated;
+
+    public MonsterType MonsterType;
+
+    [SerializeField]
+    private GlobalOneFloatEvent _scoreUpdateRequest;
+
+    [SerializeField]
+    private GlobalEvent _monsterDestroyed;
+
+    public UnityEvent<float> MonsterScored;
+    public UnityEvent MonsterSold;
 
     [SerializeField]
     private SatisfierEvent _stockSatisfierUsed;
@@ -21,24 +33,26 @@ public class MonsterNeeds : MonoBehaviour
     public UnityEvent<Need> CurrentNeedChanged;
 
     public UnityEvent Satisfied, UsedSatisfier;
-
-    public UnityEvent<bool> Selected;
-
+        
     public int NeedyLevel { get; set; }
     private List<MonsterNeedSatisfier> _currentNeeds;
     private int _indexOfCurrentNeed;
     private MonsterNeedSatisfier _currentMonsterNeedSatisfier;
-    
-    private bool _selected;
+
+    private bool _selected, _sold, _canUseNeed;
 
 
-    private void Awake()
+    private float _maximumSatisfierLevelGeneration, _minimumSellLevel, _sellPricePerLevel;
+
+    public void Init()
     {
         _currentNeeds = new List<MonsterNeedSatisfier>();
         NeedyLevel = 0;
         _indexOfCurrentNeed = -1;
+        _maximumSatisfierLevelGeneration = MonsterType.MaximumStockGeneration;
+        _minimumSellLevel = MonsterType.MinimumSellLevel;
+        _sellPricePerLevel = MonsterType.SellValuePerLevel;
         RaiseNeedyLevel();
-        _monsterSpawned.Raise(this);
     }
 
 
@@ -60,8 +74,14 @@ public class MonsterNeeds : MonoBehaviour
         {
             Need n = MonsterType.Needs[i].GetNeed();
             Satisfier defaultSatisfier = MonsterType.Needs[i].DefaultSatisfier;
-            _currentNeeds.Add(new MonsterNeedSatisfier(n, defaultSatisfier));
+            _currentNeeds.Add(new MonsterNeedSatisfier(n, defaultSatisfier, defaultSatisfier));
         }
+
+        if(NeedyLevel < _maximumSatisfierLevelGeneration)
+        {
+            RaiseMonsterNeedsGenerated();
+        }
+        
         SetCurrentNeed(true);
     }
 
@@ -76,10 +96,10 @@ public class MonsterNeeds : MonoBehaviour
 
             if (satisfied)
             {
-                deltaScore += 100;
+                deltaScore += n.NeedScoreGain;
             } else
             {
-                deltaScore -= 50;
+                deltaScore -= n.NeedScorePenalty;
             }
         }
 
@@ -89,7 +109,7 @@ public class MonsterNeeds : MonoBehaviour
     public void UseStockSatisfier(Satisfier satisfier)
     {
 
-        if (_selected)
+        if (_selected && _canUseNeed)
         {
             if(_currentMonsterNeedSatisfier == null)
             {
@@ -112,22 +132,27 @@ public class MonsterNeeds : MonoBehaviour
     public void SetSelected(bool selected)
     {
         _selected = selected;
-        RaiseSelected();
     }
 
     private void SetCurrentNeed(bool reset)
     {
         if (reset)
         {
-            _indexOfCurrentNeed = 0;
+            _indexOfCurrentNeed = GetClosestNotSatisfiedIndex(0);
         } else if (_indexOfCurrentNeed + 1 < _currentNeeds.Count)
         {
             _indexOfCurrentNeed++;
-        } else if ( _indexOfCurrentNeed + 1 >= _currentNeeds.Count)
+        } else 
         {
-            _currentMonsterNeedSatisfier = null;
-            RaiseSatisfied();
-            return;
+            _indexOfCurrentNeed = GetClosestNotSatisfiedIndex(0);
+
+            if(_indexOfCurrentNeed >= _currentNeeds.Count)
+            {
+                _currentMonsterNeedSatisfier = null;
+                RaiseSatisfied();
+                return;
+            }
+
         }
 
         _currentMonsterNeedSatisfier = _currentNeeds[_indexOfCurrentNeed];
@@ -135,33 +160,47 @@ public class MonsterNeeds : MonoBehaviour
         RaiseCurrentNeedChanged();
     }
 
-    public void OnMonsterNeedCycle(MonsterNeeds monsterNeeds)
+    private int GetClosestNotSatisfiedIndex(int indexFrom)
     {
-
-        if(monsterNeeds != this)
+        int index = _currentNeeds.Count + 1;
+        for (int i = indexFrom; i < _currentNeeds.Count; i++)
         {
-            return;
-        };
-        GenerateCurrentNeeds();
+            if (_currentNeeds[i].IsDefaultSatisfierUsed())
+            {
+                index = indexFrom;
+                return index;
+            }
+        }
+        return index;
     }
 
-    public void OnMonsterEvaluationCycle(MonsterNeeds monsterNeeds)
+    public void OnInncerCycleChanged(MonsterNeedsCycleType cycleType)
     {
-        if (monsterNeeds != this)
+        if (_sold) return;
+
+        if(cycleType == _needCycleType)
         {
-            return;
-        }
-        SatisfyNeeds();
-        RaiseNeedyLevel();
+            GenerateCurrentNeeds();
+            _canUseNeed = true;
+
+        } else if (cycleType == _evaluationCycleType)
+        {
+            SatisfyNeeds();
+            RaiseNeedyLevel();
+            _canUseNeed = false;
+        } 
     }
 
-
-    public void RaiseSelected()
+    public void OnMonsterRequestSell()
     {
-        if(Selected != null)
+        if(NeedyLevel >= _minimumSellLevel)
         {
-            Selected.Invoke(_selected);
+            _sold = true;
+            RaiseUpdateScore(NeedyLevel * _sellPricePerLevel);
+            RaiseMonsterSold();
+            RaiseMonsterDestroyed();
         }
+
     }
 
     public void RaiseUsedSatisfier()
@@ -172,12 +211,34 @@ public class MonsterNeeds : MonoBehaviour
         }
     }
 
+    public void RaiseMonsterSold()
+    {
+        if(MonsterSold != null)
+        {
+            MonsterSold.Invoke();
+        }
+    }
+
+    public void RaiseMonsterDestroyed()
+    {
+        if(_monsterDestroyed != null)
+        {
+            _monsterDestroyed.Raise();
+        }
+        Destroy(this.gameObject);
+    }
+
 
     public void RaiseUpdateScore(float deltaScore)
     {
-        if(_updatedScore != null)
+        if(_scoreUpdateRequest != null)
         {
-            _updatedScore.Raise(deltaScore);
+            _scoreUpdateRequest.Raise(deltaScore);
+        }
+
+        if(MonsterScored != null)
+        {
+            MonsterScored.Invoke(deltaScore);
         }
     }
 
@@ -198,6 +259,13 @@ public class MonsterNeeds : MonoBehaviour
         }
     }
 
+    private void RaiseMonsterNeedsGenerated()
+    {
+        if (_monsterNeedsGenerated != null)
+        {
+            _monsterNeedsGenerated.Raise(this);
+        }
+    }
 
     public void RaiseSatisfied()
     {
@@ -205,6 +273,11 @@ public class MonsterNeeds : MonoBehaviour
         {
             Satisfied.Invoke();
         }
+    }
+
+    public void OnSkipCurrentNeed()
+    {
+        SetCurrentNeed(false);
     }
 
 

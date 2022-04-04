@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PetSatisfier
   m_EditorClassIdentifier: 
   SatisfierSprite: {fileID: 958788251351077215, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}
+  SatisfierPrice: 200

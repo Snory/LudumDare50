@@ -11,6 +11,10 @@ public class Need : ScriptableObject
     public List<Satisfier> PossibleSatisfiers;
     public Sprite NeedSprite;
 
+    public float NeedScorePenalty = 50;
+    public float NeedScoreGain = 100;
+
+
     public virtual bool CanUseSatisfier(Satisfier s)
     {
         bool canUse = PossibleSatisfiers.Contains(s);

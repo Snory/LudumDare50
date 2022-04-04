@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ScareSatisfier
   m_EditorClassIdentifier: 
   SatisfierSprite: {fileID: 6007959333567319727, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}
+  SatisfierPrice: 200

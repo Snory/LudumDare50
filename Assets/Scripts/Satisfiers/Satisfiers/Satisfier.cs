@@ -6,5 +6,6 @@ using UnityEngine;
 public class Satisfier : ScriptableObject
 {
     public Sprite SatisfierSprite;
+    public float SatisfierPrice = 200;
 
 }

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ShitSatisfier
   m_EditorClassIdentifier: 
   SatisfierSprite: {fileID: 1015010725617771203, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}
+  SatisfierPrice: 200

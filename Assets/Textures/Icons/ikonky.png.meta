@@ -43,7 +43,7 @@ TextureImporter:
     second: ikonky_12
   - first:
       213: 6959528001215022012
-    second: ikonky_13
+    second: SelectionBackground
   - first:
       213: -4425288536091637732
     second: ikonky_14
@@ -61,16 +61,16 @@ TextureImporter:
     second: ikonky_18
   - first:
       213: 4360465979726396952
-    second: ikonky_19
+    second: Add
   - first:
       213: 5940391582688786345
     second: ikonky_20
   - first:
       213: -2529681246393800827
-    second: ikonky_21
+    second: DragonSnail
   - first:
       213: 8375038536626984059
-    second: ikonky_22
+    second: Owl
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -403,7 +403,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ikonky_13
+      name: SelectionBackground
       rect:
         serializedVersion: 2
         x: 75
@@ -529,7 +529,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ikonky_19
+      name: Add
       rect:
         serializedVersion: 2
         x: 124
@@ -571,7 +571,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ikonky_21
+      name: DragonSnail
       rect:
         serializedVersion: 2
         x: 489
@@ -592,10 +592,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ikonky_22
+      name: Owl
       rect:
         serializedVersion: 2
-        x: 775
+        x: 776
         y: 0
         width: 123
         height: 123

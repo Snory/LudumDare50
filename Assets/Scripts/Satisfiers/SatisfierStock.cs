@@ -21,6 +21,7 @@ public class SatisfierStock : MonoBehaviour
             {
                 AddStockSatisfier(satisfier);
             }
+            RaiseStockedChanged();
         }
     }
 
@@ -56,6 +57,12 @@ public class SatisfierStock : MonoBehaviour
         }
     }
 
+    public void OnBuySatisfier(Satisfier s)
+    {
+        AddStockSatisfier(s);
+        RaiseStockedChanged();
+    }
+
     public void RemoveStockSatisfier(Satisfier s)
     {
         //èeknout jestli už existuje
@@ -86,6 +93,7 @@ public class SatisfierStock : MonoBehaviour
             StockedChanged.Invoke(this);
         }
     }
+
 
 
 }

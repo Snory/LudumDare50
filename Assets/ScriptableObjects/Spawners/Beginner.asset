@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7a077ccb7ed494d9cb86535831aa61, type: 3}
+  m_Name: Beginner
+  m_EditorClassIdentifier: 
+  SpawnerFrequencySettings:
+  - CountOfMonstersOnScoreLevel: 1
+    MinimumScoreLevelAmount: 0
+  - CountOfMonstersOnScoreLevel: 2
+    MinimumScoreLevelAmount: 100
+  - CountOfMonstersOnScoreLevel: 3
+    MinimumScoreLevelAmount: 500
+  - CountOfMonstersOnScoreLevel: 4
+    MinimumScoreLevelAmount: 1000
+  - CountOfMonstersOnScoreLevel: 5
+    MinimumScoreLevelAmount: 1250
+  - CountOfMonstersOnScoreLevel: 6
+    MinimumScoreLevelAmount: 1500

@@ -7,6 +7,6 @@ using System;
 [Serializable]
 public class MonsterNeedsCycleTime 
 {
-    public MonsterNeedEvent CycleEvent;
+    public MonsterNeedsCycleType CycleType;
     public float CycleTime;
 }

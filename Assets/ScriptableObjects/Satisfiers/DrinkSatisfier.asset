@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DrinkSatisfier
   m_EditorClassIdentifier: 
   SatisfierSprite: {fileID: 21300000, guid: e4fa40e921bd335479971311210f6f9f, type: 3}
+  SatisfierPrice: 200
