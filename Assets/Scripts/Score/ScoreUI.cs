@@ -9,10 +9,15 @@ public class ScoreUI : MonoBehaviour
     private float _score;
     public TextMeshProUGUI Text;
 
+    private void Awake()
+    {
+        Text.text = ": 0";
+    }
+
     public void OnScoreUpdate(float value)
     {
         _score = value;
-        Text.text = "Score: " + _score.ToString();
+        Text.text = ": " + _score.ToString();
 
     }
 

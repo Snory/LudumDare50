@@ -55,6 +55,17 @@ public class MonsterNeeds : MonoBehaviour
         RaiseNeedyLevel();
     }
 
+    private void Update()
+    {
+        if (_selected)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                SetCurrentNeed(false);
+            }
+        }
+    }
+
 
     public void RaiseNeedyLevel()
     {
@@ -124,6 +135,7 @@ public class MonsterNeeds : MonoBehaviour
             }
             _currentMonsterNeedSatisfier.Satisfier = satisfier;
             RaiseStockSatisfierUsed(satisfier);
+            RaiseUsedSatisfier();
             SetCurrentNeed(false);               
         }
 

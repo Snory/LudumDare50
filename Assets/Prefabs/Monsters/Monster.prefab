@@ -652,7 +652,7 @@ Transform:
   m_GameObject: {fileID: 1775361833945580720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1775361835394694316}
   m_RootOrder: 0
@@ -697,12 +697,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a3e15606316f56b4eae1caeb755121b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d2a37ea2477d5940a91da2489166172, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.62, y: 7.38}
+  m_Size: {x: 2.31, y: 1.94}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -832,6 +832,7 @@ MonoBehaviour:
   NeedImage: {fileID: 1775361835083917176}
   _needPhase: {fileID: 5055330879144896885, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}
   _sellPhase: {fileID: 4704403259578683231, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}
+  _evaluationPhase: {fileID: -605496462276557652, guid: 97b8f2f5c04790d498b6a040d083b847, type: 3}
 --- !u!95 &1775361834830706304
 Animator:
   serializedVersion: 3
@@ -986,6 +987,7 @@ GameObject:
   - component: {fileID: 1775361835394694317}
   - component: {fileID: 1538343697}
   - component: {fileID: 707592922}
+  - component: {fileID: 3163116940410857771}
   m_Layer: 6
   m_Name: Monster
   m_TagString: Untagged
@@ -1172,7 +1174,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _monsterNeeds: {fileID: 1775361835394694306}
 --- !u!114 &1775361835394694319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,6 +1288,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  SkippedEvaluationPhase:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8742392443090084991}
+        m_TargetAssemblyTypeName: MonsterNeedsCycle, Assembly-CSharp
+        m_MethodName: NextCycle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _needCycleType: {fileID: 11400000, guid: 008bb36c8e4584240bc75ba509996e5f, type: 2}
   _evaluationCycleType: {fileID: 11400000, guid: 64a60c94d15d4524db8bcb6f43b72e95, type: 2}
   _sellCycleType: {fileID: 11400000, guid: 1aa34405f9125ba4ca14f5084e706f55, type: 2}
+--- !u!114 &3163116940410857771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775361835394694304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f30cade484c4f8488ce8e9a7afef78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _monsterLookRendered: {fileID: 1775361833945580722}

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NeedProbabilities:
   - Need: {fileID: 11400000, guid: c87d4dfca4a904a42ab8e46416407f5e, type: 2}
-    Probability: 50
-  - Need: {fileID: 11400000, guid: 79f411ae01996fd4ba1dda283f82f3e0, type: 2}
     Probability: 35
+  - Need: {fileID: 11400000, guid: 79f411ae01996fd4ba1dda283f82f3e0, type: 2}
+    Probability: 50
   - Need: {fileID: 11400000, guid: bba6e1ef0fad2a7429e937564e006da4, type: 2}
     Probability: 15
   DefaultSatisfier: {fileID: 11400000, guid: ee829b32ae6fedd4cb29d92be1be4dff, type: 2}
+  CategoryIcon: {fileID: 2466607303948401793, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}

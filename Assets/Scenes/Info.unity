@@ -269,6 +269,7 @@ MonoBehaviour:
   CurrentScene: Info
   NextScene: MainMenu
   Additive: {fileID: 11400000, guid: 5a9c7f7c62a8c334ea61d6191557b7ec, type: 2}
+  EventSystemInScene: {fileID: 0}
   _sceneTransition: {fileID: 978859846}
 --- !u!4 &360037132 stripped
 Transform:
@@ -345,7 +346,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -332
   m_Sprite: {fileID: -5674712901001205216, guid: 8b64cbf47e68d82479d83cf53391a85d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -10,13 +10,10 @@ public class MonsterNeedsCycle : MonoBehaviour
     public UnityEvent<float, float> TimerTicked;
 
     public UnityEvent<MonsterNeedsCycleType> MonsterCycleChanged;
-
-
-    //deal with this direct reference later
-    [SerializeField]
-    private MonsterNeeds _monsterNeeds;
     
     private bool _gameOver;
+
+    private float _innerTime;
 
     private void Awake()
     {
@@ -41,16 +38,16 @@ public class MonsterNeedsCycle : MonoBehaviour
 
     private IEnumerator StartTimer(MonsterNeedsCycleTime monsterCycleEvent, bool restart)
     {
-        if (!restart)
+        if (restart == false)
         {
             RaiseMonsterCycleChanged(monsterCycleEvent.CycleType);
         }
 
-        float actualSeconds = 0;
-        while(actualSeconds < monsterCycleEvent.CycleTime)
+        SetInnerTime(0);
+        while(_innerTime < monsterCycleEvent.CycleTime)
         {
-            RaiseTimerTicked(monsterCycleEvent.CycleTime, actualSeconds);
-            actualSeconds += 1;
+            RaiseTimerTicked(monsterCycleEvent.CycleTime, _innerTime);
+            SetInnerTime(_innerTime + 1);
             if (_gameOver)
             {
                 break;
@@ -62,8 +59,18 @@ public class MonsterNeedsCycle : MonoBehaviour
 
     public void OnSatisfierUsed()
     {
-        StopAllCoroutines();
-        StartCycle(true);
+        SetInnerTime(_innerTime - 1);
+    }
+
+    private void SetInnerTime(float newTime)
+    {
+        if(newTime < 0)
+        {
+            _innerTime = 0;
+        } else
+        {
+            _innerTime = newTime;
+        }
     }
 
     public void NextCycle()
@@ -99,8 +106,6 @@ public class MonsterNeedsCycle : MonoBehaviour
             MonsterCycleChanged.Invoke(cycleType);
         }
     }
-
-
 
     public void GameOver()
     {

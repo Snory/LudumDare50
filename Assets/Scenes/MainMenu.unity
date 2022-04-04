@@ -271,7 +271,8 @@ MonoBehaviour:
   CurrentScene: MainMenu
   NextScene: Level
   Additive: {fileID: 11400000, guid: 5a9c7f7c62a8c334ea61d6191557b7ec, type: 2}
-  EventSystemInScene: {fileID: 1676247308}
+  _eventSystemInScene: {fileID: 1676247308}
+  _audioListenerInScene: {fileID: 692355638}
   _sceneTransition: {fileID: 978859846}
 --- !u!1 &250644430
 GameObject:
@@ -319,7 +320,8 @@ MonoBehaviour:
   CurrentScene: MainMenu
   NextScene: Info
   Additive: {fileID: 11400000, guid: 5a9c7f7c62a8c334ea61d6191557b7ec, type: 2}
-  EventSystemInScene: {fileID: 1676247308}
+  _eventSystemInScene: {fileID: 0}
+  _audioListenerInScene: {fileID: 0}
   _sceneTransition: {fileID: 978859846}
 --- !u!4 &360037132 stripped
 Transform:

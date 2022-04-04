@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonsterNeedCycleTimes:
   - CycleType: {fileID: 11400000, guid: 008bb36c8e4584240bc75ba509996e5f, type: 2}
-    CycleTime: 10
+    CycleTime: 30
   - CycleType: {fileID: 11400000, guid: 64a60c94d15d4524db8bcb6f43b72e95, type: 2}
-    CycleTime: 0
-  - CycleType: {fileID: 11400000, guid: 1aa34405f9125ba4ca14f5084e706f55, type: 2}
     CycleTime: 10
+  - CycleType: {fileID: 11400000, guid: 1aa34405f9125ba4ca14f5084e706f55, type: 2}
+    CycleTime: 5
   Needs:
   - {fileID: 11400000, guid: baf5b8928bbc15842b309c94eed70fb1, type: 2}
   - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
@@ -30,6 +30,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
   - {fileID: 11400000, guid: baf5b8928bbc15842b309c94eed70fb1, type: 2}
   - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
-  MinimumSellLevel: 5
+  - {fileID: 11400000, guid: baf5b8928bbc15842b309c94eed70fb1, type: 2}
+  - {fileID: 11400000, guid: d0f8aa411f1a3e3449894673efa5339d, type: 2}
+  MinimumSellLevel: 4
   MaximumStockGeneration: 5
-  SellValuePerLevel: 10
+  SellValuePerLevel: 30
+  MonsterSprite: {fileID: 21300000, guid: 8292c4c899b04e84da76b9606524d54b, type: 3}

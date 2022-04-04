@@ -16,21 +16,21 @@ public class SatisfierStockElementUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI CountText;
 
-    private Satisfier _satisfier;
+    private Satisfier _assignedSatisfier;
 
     public void RaiseRequestToUseSatisfier()
     {
         if (_requestToUseSatisfier != null)
         {
-            _requestToUseSatisfier.Raise(_satisfier);
+            _requestToUseSatisfier.Raise(_assignedSatisfier);
         }
     }
 
 
     public void SetSatisfierElementUI(Satisfier s, int countOfSatisfiers)
     {
-        _satisfier = s;
-        SatisfierImage.sprite = _satisfier.SatisfierSprite;
+        _assignedSatisfier = s;
+        SatisfierImage.sprite = _assignedSatisfier.SatisfierSprite;
         CountText.text = countOfSatisfiers.ToString();
 
     }

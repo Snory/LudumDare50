@@ -48,8 +48,11 @@ public class MonsterSpawnSpot : MonoBehaviour
         MonsterNeedsCycle monsterNeedsCycle = monster.GetComponent<MonsterNeedsCycle>();
         MonsterSelector monsterSelector = monster.GetComponentInChildren<MonsterSelector>();
         MonsterActions monsterActions = monster.GetComponentInChildren<MonsterActions>();
+        MonsterLook monsterLook = monster.GetComponentInChildren<MonsterLook>();
+
 
         monsterNeeds.MonsterType = monsterType;
+        monsterLook.SetMonsterLook(monsterType.MonsterSprite);
         monsterNeedsCycle.MonsterType = monsterType;
         _player.MonsterSelected.AddListener(monsterSelector.OnSelected);
         monsterNeeds.MonsterSold.AddListener(this.OnMonsterSold);

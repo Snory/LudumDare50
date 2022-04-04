@@ -40,13 +40,13 @@ TextureImporter:
     second: Care
   - first:
       213: -6365733101788381199
-    second: ikonky_12
+    second: Playfull
   - first:
       213: 6959528001215022012
     second: SelectionBackground
   - first:
       213: -4425288536091637732
-    second: ikonky_14
+    second: Angry
   - first:
       213: 4704403259578683231
     second: Sell
@@ -55,7 +55,7 @@ TextureImporter:
     second: StockItem
   - first:
       213: 2466607303948401793
-    second: ikonky_17
+    second: Foody
   - first:
       213: -6709388003052422188
     second: ikonky_18
@@ -382,7 +382,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ikonky_12
+      name: Playfull
       rect:
         serializedVersion: 2
         x: 838
@@ -424,7 +424,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ikonky_14
+      name: Angry
       rect:
         serializedVersion: 2
         x: 345
@@ -487,7 +487,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ikonky_17
+      name: Foody
       rect:
         serializedVersion: 2
         x: 783

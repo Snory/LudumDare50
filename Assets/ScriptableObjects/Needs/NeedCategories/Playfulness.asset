@@ -20,3 +20,4 @@ MonoBehaviour:
   - Need: {fileID: 11400000, guid: 35da0ecb176e8214986a5f2eba6432f5, type: 2}
     Probability: 15
   DefaultSatisfier: {fileID: 11400000, guid: ee829b32ae6fedd4cb29d92be1be4dff, type: 2}
+  CategoryIcon: {fileID: -6365733101788381199, guid: cd72d955d23f1a747b5bb49bb297f5aa, type: 3}

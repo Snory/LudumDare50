@@ -9,17 +9,28 @@ public class SceneSwitch : MonoBehaviour
     public string NextScene;
     public BoolVariable Additive;
 
-    public EventSystem EventSystemInScene;
+
+    [SerializeField]
+    private EventSystem _eventSystemInScene;
+
+    [SerializeField]
+    private AudioListener _audioListenerInScene;
 
     [SerializeField]
     private SceneTransitionBase _sceneTransition;
 
     public void SwitchScene()
     {
-        if(EventSystemInScene != null)
+        if(_eventSystemInScene != null)
         {
-            EventSystemInScene.enabled = false;
+            _eventSystemInScene.enabled = false;
         }
+
+        if (_audioListenerInScene != null)
+        {
+            _audioListenerInScene.enabled = false;
+        }
+
         _sceneTransition.TransitToScene(CurrentScene, NextScene, Additive.Value);
     }
 }

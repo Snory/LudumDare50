@@ -9,10 +9,12 @@ public class MonsterActions : MonoBehaviour
 
     public UnityEvent SkipedCurrentRequest;
 
+    public UnityEvent SkippedEvaluationPhase;
+
     [SerializeField]
     private MonsterNeedsCycleType _needCycleType, _evaluationCycleType, _sellCycleType;
 
-    private bool _canSold, _canMoveToNext;
+    private bool _canSold, _canMoveToNext, _canSkip;
 
     public void OnClick()
     {
@@ -24,6 +26,11 @@ public class MonsterActions : MonoBehaviour
         if (_canMoveToNext)
         {
             RaiseSkipCurrentRequest();
+        }
+
+        if (_canSkip)
+        {
+            RaiseSkipEvaluationPhase();
         }
     }
 
@@ -47,6 +54,15 @@ public class MonsterActions : MonoBehaviour
         {
             _canMoveToNext = false;
         }
+
+        if (cycleType == _evaluationCycleType)
+        {
+            _canSkip = true;
+        }
+        else
+        {
+            _canSkip = false;
+        }
     }
 
 
@@ -65,4 +81,13 @@ public class MonsterActions : MonoBehaviour
             SkipedCurrentRequest.Invoke();
         }
     }
+
+    public void RaiseSkipEvaluationPhase()
+    {
+        if (SkippedEvaluationPhase != null)
+        {
+            SkippedEvaluationPhase.Invoke();
+        }
+    }
 }
+

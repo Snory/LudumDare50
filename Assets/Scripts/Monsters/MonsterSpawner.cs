@@ -16,6 +16,9 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private bool _spawning;
 
+    [SerializeField]
+    private float _spawnCoolDown;
+
     private void Awake()
     {
         _countOfSpawnedMonsters = 0;
@@ -36,11 +39,11 @@ public class MonsterSpawner : MonoBehaviour
         //compare count of monster spawned with count of needed
         if (mssf.CountOfMonstersOnScoreLevel > _countOfSpawnedMonsters && !_spawning)
         {
-            SpawnMonsters(mssf.CountOfMonstersOnScoreLevel - _countOfSpawnedMonsters);
+            StartCoroutine(SpawnMonsters(mssf.CountOfMonstersOnScoreLevel - _countOfSpawnedMonsters));
         }
     }
 
-    private void SpawnMonsters(int countOfMonstersToSpawn)
+    private IEnumerator SpawnMonsters(int countOfMonstersToSpawn)
     {
         int spawnedCount = 0;
         _spawning = true;
@@ -49,9 +52,12 @@ public class MonsterSpawner : MonoBehaviour
         {
             _spawnSpots.Where(s => !s.SpawnSpotFull).First().OnSpawnMonsterRequest();
             spawnedCount++;
-        }
+            yield return new WaitForSeconds(_spawnCoolDown);
 
+
+        }
         _spawning = false;
+
     }
 
 

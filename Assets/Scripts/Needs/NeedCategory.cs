@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "NewNeedCategory", menuName = "Need/NeedCategory", order = 2)]
 public class NeedCategory : ScriptableObject
 {
     public List<NeedProbability> NeedProbabilities;
     public Satisfier DefaultSatisfier;
+    public Sprite CategoryIcon;
 
     //return need from needprobabilities
 
@@ -25,6 +26,7 @@ public class NeedCategory : ScriptableObject
             {
                 currentMax += NeedProbabilities[i].Probability;
             }
+        
         }
 
         return null;

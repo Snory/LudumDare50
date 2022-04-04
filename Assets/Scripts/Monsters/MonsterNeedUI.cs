@@ -15,7 +15,7 @@ public class MonsterNeedUI : MonoBehaviour
     public Image NeedImage;
 
     [SerializeField]
-    private Sprite _needPhase, _sellPhase;
+    private Sprite _needPhase, _sellPhase, _evaluationPhase;
 
     private Animator _monsterNeedUIAnimator;
 
@@ -46,6 +46,9 @@ public class MonsterNeedUI : MonoBehaviour
         else if (cycleTYpe == _sellCycleType)
         {
             OnSellCycle();
+        } else if (cycleTYpe == _evaluationCycleType)
+        {
+            OnEvaluationCycle();
         }
     }
 
@@ -85,8 +88,13 @@ public class MonsterNeedUI : MonoBehaviour
 
     private void OnSellCycle()
     {
-        BubbleDown(true);
         Timer.sprite = _sellPhase;
+    }
+
+    private void OnEvaluationCycle()
+    {
+        BubbleDown(true);
+        Timer.sprite = _evaluationPhase;
     }
 
     public void OnCurrentNeedChanged(Need n)
@@ -98,7 +106,7 @@ public class MonsterNeedUI : MonoBehaviour
 
     public void OnSatisfied()
     {
-        OnSellCycle();
+        OnEvaluationCycle();
     }
 
 

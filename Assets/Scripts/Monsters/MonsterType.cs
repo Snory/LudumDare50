@@ -10,6 +10,6 @@ public class MonsterType : ScriptableObject
     public float MinimumSellLevel = 3;
     public float MaximumStockGeneration = 10;
     public float SellValuePerLevel = 10;
-
+    public Sprite MonsterSprite;
 
 }

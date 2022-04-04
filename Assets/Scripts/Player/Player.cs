@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     //raise to monsterspawner at least
     public UnityEvent<GameObject> MonsterSelected;
 
-
     private void Update()
     {
         CheckWhatIsUnderMouse();
@@ -21,8 +20,6 @@ public class Player : MonoBehaviour
 
     private void CheckWhatIsUnderMouse()
     {
-
-
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -44,7 +41,7 @@ public class Player : MonoBehaviour
 
                 RaiseMonsterSelected(hitMonster.transform.gameObject);
 
-            }
+            } 
 
             if (hitInWorldUI)
             {
@@ -73,5 +70,7 @@ public class Player : MonoBehaviour
             MonsterSelected.Invoke(monster);
         }
     }
+
+
 
 }
