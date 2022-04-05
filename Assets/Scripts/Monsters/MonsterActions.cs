@@ -14,10 +14,12 @@ public class MonsterActions : MonoBehaviour
     [SerializeField]
     private MonsterNeedsCycleType _needCycleType, _evaluationCycleType, _sellCycleType;
 
-    private bool _canSold, _canMoveToNext, _canSkip;
+    private bool _canSold, _canMoveToNext, _canSkip, _selected;
 
     public void OnClick()
     {
+        if (!_selected) return;
+
         if (_canSold)
         {
             RaiseMonsterSellRequest();
@@ -44,7 +46,7 @@ public class MonsterActions : MonoBehaviour
         }
         else 
         {
-            _canSold = true;
+            _canSold = false;
         }
 
         if(cycleType == _needCycleType)
@@ -89,5 +91,12 @@ public class MonsterActions : MonoBehaviour
             SkippedEvaluationPhase.Invoke();
         }
     }
+
+    public void OnSelectedChanged(bool selected)
+    {
+        _selected = selected;
+    }
+
+
 }
 

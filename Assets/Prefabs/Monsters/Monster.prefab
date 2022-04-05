@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b02d680272183d646bdb415bc5d8418c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf368f1d39f06c441b18bed59ed7e1cd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1326,6 +1326,21 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MonsterNeedsCycle, Assembly-CSharp
         m_MethodName: OnSatisfierUsed
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SelectedChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 707592922}
+        m_TargetAssemblyTypeName: MonsterActions, Assembly-CSharp
+        m_MethodName: OnSelectedChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

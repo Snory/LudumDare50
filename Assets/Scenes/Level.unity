@@ -299,7 +299,6 @@ GameObject:
   - component: {fileID: 36399980}
   - component: {fileID: 36399979}
   - component: {fileID: 36399978}
-  - component: {fileID: 36399977}
   m_Layer: 0
   m_Name: WinGame
   m_TagString: Untagged
@@ -327,34 +326,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &36399977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36399975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0471ba8bc7c759c47af9501572fe3065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: b277884f70c037c43a1799ec906a6447, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 36399981}
-        m_TargetAssemblyTypeName: GameOverUIElement, Assembly-CSharp
-        m_MethodName: OnHighScoreUpdated
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &36399978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,11 +588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2599998
+      value: -2.43
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.13
+      value: -2.6000001
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1111,9 +1082,9 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 65, y: 65}
-  m_Spacing: {x: 10, y: 10}
-  m_Constraint: 2
+  m_CellSize: {x: 58, y: 58}
+  m_Spacing: {x: 11, y: 11}
+  m_Constraint: 0
   m_ConstraintCount: 3
 --- !u!114 &417790004
 MonoBehaviour:
@@ -1473,11 +1444,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3700004
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.84
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1672,11 +1643,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.86
+      value: -6.32
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.13
+      value: -2.6000001
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2104,8 +2075,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 168.4552, y: -64}
+  m_SizeDelta: {x: 310.5104, y: 70.7238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &758824444
 GameObject:
@@ -3118,8 +3089,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -129.47845, y: 0}
-  m_SizeDelta: {x: 258.9569, y: 0}
+  m_AnchoredPosition: {x: -119.8064, y: 0}
+  m_SizeDelta: {x: 239.6129, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185329331
 MonoBehaviour:
@@ -3184,11 +3155,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3700004
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.13
+      value: -2.6000001
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3601,11 +3572,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2599998
+      value: -2.43
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.84
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3960,8 +3931,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.1746, y: 0}
-  m_SizeDelta: {x: -18.349, y: 0}
+  m_AnchoredPosition: {x: 9.174599, y: -13.5763855}
+  m_SizeDelta: {x: -18.349, y: -27.1528}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1391392411
 CanvasRenderer:
@@ -4575,8 +4546,8 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 65, y: 65}
-  m_Spacing: {x: 10, y: 10}
+  m_CellSize: {x: 58, y: 58}
+  m_Spacing: {x: 11, y: 11}
   m_Constraint: 0
   m_ConstraintCount: 3
 --- !u!1 &1573411189
@@ -5618,6 +5589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3696243655281094954}
+  - component: {fileID: 3696243655281094956}
   m_Layer: 0
   m_Name: LevelUI
   m_TagString: Untagged
@@ -5625,6 +5597,46 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3696243655281094956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696243655281094955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0471ba8bc7c759c47af9501572fe3065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: b277884f70c037c43a1799ec906a6447, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7171593653001561540}
+        m_TargetAssemblyTypeName: GameOverUIElement, Assembly-CSharp
+        m_MethodName: OnHighScoreUpdated
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 36399981}
+        m_TargetAssemblyTypeName: HighScoreUIElement, Assembly-CSharp
+        m_MethodName: OnHighScoreUpdated
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &5508313778638281788
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5650,11 +5662,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.86
+      value: -6.32
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.84
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 5508313778799052803, guid: 52d81f94ff81ab545b74cc58eba5c314, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6139,7 +6151,6 @@ GameObject:
   - component: {fileID: 7171593653001561565}
   - component: {fileID: 7171593653001561538}
   - component: {fileID: 1232528246}
-  - component: {fileID: 7171593653001561541}
   m_Layer: 0
   m_Name: GameOver
   m_TagString: Untagged
@@ -6160,34 +6171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighScoreText: {fileID: 1861547199}
---- !u!114 &7171593653001561541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7171593653001561539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0471ba8bc7c759c47af9501572fe3065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: b277884f70c037c43a1799ec906a6447, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7171593653001561540}
-        m_TargetAssemblyTypeName: GameOverUIElement, Assembly-CSharp
-        m_MethodName: OnHighScoreUpdated
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!224 &7171593653001561564
 RectTransform:
   m_ObjectHideFlags: 0

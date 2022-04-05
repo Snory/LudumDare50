@@ -34,7 +34,10 @@ public class MonsterNeeds : MonoBehaviour
     public UnityEvent<Need> CurrentNeedChanged;
 
     public UnityEvent Satisfied, UsedSatisfier;
-        
+
+    public UnityEvent<bool> SelectedChanged;
+
+
     public int NeedyLevel { get; set; }
     private List<MonsterNeedSatisfier> _currentNeeds;
     private int _indexOfCurrentNeed;
@@ -146,6 +149,16 @@ public class MonsterNeeds : MonoBehaviour
     public void SetSelected(bool selected)
     {
         _selected = selected;
+        RaiseSelectedChanged(selected);
+
+    }
+
+    private void RaiseSelectedChanged(bool selected)
+    {
+        if(SelectedChanged != null)
+        {
+            SelectedChanged.Invoke(selected);
+        }
     }
 
     private void SetCurrentNeed(bool reset)

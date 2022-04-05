@@ -35,16 +35,24 @@ public class InfoButton : MonoBehaviour
         {
             _typeWriter.Type(Texts[i], WriteText);
 
-            float length = (Texts[i].Length / 10) * 1f;
+            float length = Texts[i].Length ;
 
-            if(length < 3)
+            if(length < 100)
             {
-                length = 3f;
+                length = 2.5f;
+            } else if (length >= 100 && length < 300){
+
+                length = 5f;
+
+            } else if (length >= 300)
+            {
+                length = 10f;
             }
 
             yield return new WaitForSeconds(length);
-        
+
         }
+                
         ShowAdditionalInformations(false);
     }
 

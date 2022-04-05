@@ -160,10 +160,10 @@ TextureImporter:
       name: pozadi_2
       rect:
         serializedVersion: 2
-        x: 3
+        x: 9
         y: 11
-        width: 272
-        height: 568
+        width: 269
+        height: 567
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
